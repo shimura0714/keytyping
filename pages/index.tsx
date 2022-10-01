@@ -1,14 +1,14 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import type { NextPage } from "next";
+import { VFC } from "react";
+import { Keyboard } from "../components/keyboard/Keyboard";
+import { Layout } from "../components/layout/Layout";
 
-const Home: NextPage = () => {
+const Home: VFC = () => {
   return (
-    <h1 className='text-3xl font-bold underline'>
-      hello world
-    </h1>
-  )
-}
+    <Layout>
+      <Keyboard />
+    </Layout>
+  );
+};
 
-export default Home
+export default Home;
