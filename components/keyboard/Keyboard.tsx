@@ -48,13 +48,15 @@ export const Keyboard: FC = () => {
     return characters[random];
   };
   const [keyChar, setKeyChar] = useState(getRandomKeyNumber());
-  const keypress = (e: React.KeyboardEvent<HTMLButtonElement>) => {
-    setKeyChar(getRandomKeyNumber());
-  };
+  if (typeof window === 'object') {
+    document.addEventListener("keypress", (_) => {
+      setKeyChar(getRandomKeyNumber());
+    });
+  }
   return (
     <>
       <div>
-        <button onKeyPress={keypress}>Button</button>
+        <button>Button</button>
       </div>
       <Key character={keyChar} />
     </>
