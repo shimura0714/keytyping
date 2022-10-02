@@ -45,7 +45,9 @@ export type Props = {
 };
 
 export const Key: FC<Props> = ({character}) => {
-  return <div className='container'>{character}</div>;
+  return (
+    <div className='container'>{ character }</div>
+  );
 };
 
 export default Key;

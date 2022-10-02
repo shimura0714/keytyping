@@ -44,21 +44,21 @@ const characters: Character[] = [
 
 export const Keyboard: FC = () => {
   const getRandomKeyNumber = () => {
-    return Math.random() * (characters.length - 0) + 0;
+    const random = Math.floor(Math.random() * (characters.length - 0) + 0);
+    return characters[random];
   }
   const [keyChar, setKeyChar] = useState(getRandomKeyNumber());
-  console.log(keyChar);
   const keypress = ((e: React.KeyboardEvent<HTMLButtonElement>) => {
-    console.log(e.key);
     setKeyChar(getRandomKeyNumber());
   });
+  console.log(keyChar)
   return (
-    <div>
-      <button onKeyPress={ keypress }>Button</button>
-      {characters.map((character, index) => {
-        return <Key key={index} character={character} />;
-      })}
-    </div>
+    <>
+      <div>
+        <button onKeyPress={ keypress }>Button</button>
+      </div>
+      <Key character={keyChar} />
+    </>
   );
 };
 
